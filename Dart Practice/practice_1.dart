@@ -77,13 +77,24 @@ void main () {
 
   // Class declaration :
   var solo = Solo();
-  stdout.writeln("addittion of 2 and 3 id : ${solo.add("solo","edits")}, ${solo.add("solo","edits").runtimeType}");
+  stdout.writeln("addition of solo and edits is : ${solo.add("solo","edits")}, ${solo.add("solo","edits").runtimeType}");
+  stdout.writeln(solo);
 }
 
 // class creation
 class Solo {
-  // function that return Integer value:
-  String add (a,b){
-    return a+b;
+
+  Solo(){
+    stdout.writeln("this is default constructor");
+  }
+  // default constructor is the constructor which get created automatically when aa new instance is created
+  // it have same name as the class name also if we want that when we create the instance of this constructor some code get executed immediately then its possible with this default constructor
+  // function that return Integer value
+
+  // function inside the class:
+  String add(a, b) {
+    return a + b;
   }
 }
+
+// we can create multiple class for multiple type of function.
