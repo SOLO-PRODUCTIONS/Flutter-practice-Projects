@@ -66,7 +66,7 @@ void main () {
   // it will throw like you have to assign this data to a integer type variable.
 
   // var as dynamic datatype :
-  var g;
+  var g ;
   g = "String" ;
   stdout.writeln('data :$g datatype: ${g.runtimeType}');
   g = 67 ;
@@ -74,4 +74,16 @@ void main () {
   g = 9.98 ;
   stdout.writeln('data :$g datatype: ${g.runtimeType}');
   // as dynamic datatype we can any type of datatype at anytime it will convert it's data type
+
+  // Class declaration :
+  var solo = Solo();
+  stdout.writeln("addittion of 2 and 3 id : ${solo.add("solo","edits")}, ${solo.add("solo","edits").runtimeType}");
+}
+
+// class creation
+class Solo {
+  // function that return Integer value:
+  String add (a,b){
+    return a+b;
+  }
 }
