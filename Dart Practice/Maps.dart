@@ -37,4 +37,21 @@ void main() {
   profile["password"] = "solo123" ;
 
   stdout.writeln("user ${user} type ${user.runtimeType}");
+
+  // to check if the map is not empty:
+  stdout.writeln(user.isNotEmpty);
+  // to check if the map is empty:
+  stdout.writeln(user.isEmpty);
+  // to check the length of the map:
+  stdout.writeln(user.length);
+  // to check the keys of the map:
+  stdout.writeln(user.keys);
+  // to check the values of the map:
+  stdout.writeln(user.values);
+  // to check the map contains this specific keys or not
+  stdout.writeln(user.values);
+  // to check the map contains this specific values or not
+  stdout.writeln(user.values);
+  // to remove any specific value by giving key
+  stdout.writeln(user.remove("password"));
 }
