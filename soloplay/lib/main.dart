@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import "package:font_awesome_flutter/font_awesome_flutter.dart";
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MyApp());
@@ -6,6 +8,13 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
+  Future<void> _launchYoutube() async{
+    final Uri url = Uri.parse("https://www.youtube.com/@SOLOEDITS7");
+    if (!await launchUrl(url, mode: LaunchMode.externalApplication)){
+      throw Exception("Could not launch $url");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,16 +27,27 @@ class MyApp extends StatelessWidget {
           backgroundColor:Colors.transparent,
           toolbarHeight: 55,
           elevation: 0,
-          centerTitle: true,
           title: const Text(
             "SOLOPLAY",
             style: TextStyle(
               color: Color.fromARGB(255, 255, 255, 255),
               fontFamily: "elemental",
-              fontSize: 25,
-
+              fontSize: 23,
             ),
           ),
+          actions: [
+            Padding(
+              padding: const EdgeInsetsGeometry.only(right: 8),
+              child: IconButton(
+                  iconSize: 26,
+                  onPressed: _launchYoutube,
+                  icon: FaIcon(
+                    FontAwesomeIcons.youtube,
+                    color: Color.fromARGB(255, 255, 255, 255)
+                  )
+              )
+            )
+          ],
         ),
 
         // Main Body
@@ -55,7 +75,7 @@ class MyApp extends StatelessWidget {
                   padding: const EdgeInsets.only(top:10),
                   decoration: BoxDecoration(
                     border: Border.all(
-                      color: Color.fromARGB(255, 135, 139, 152),
+                      color: Color.fromARGB(255, 255, 255, 255),
                       width: 2,
                     ),
                     borderRadius: BorderRadius.circular(20)
@@ -67,7 +87,7 @@ class MyApp extends StatelessWidget {
                         Text(
                           "Admin",
                           style: TextStyle(
-                            color: Color.fromARGB(255, 228, 228, 228),
+                            color: Color.fromARGB(255, 255, 255, 255),
                             fontSize: 20,
                             fontFamily: "elemental",
                           ),
@@ -95,36 +115,36 @@ class MyApp extends StatelessWidget {
                           ),
                         ),
                         ElevatedButton(
-                            onPressed: (){},
-                            style: ElevatedButton.styleFrom(
-                                minimumSize: const Size(100, 50),
-                                backgroundColor: Color.fromARGB(100, 0, 0, 0),
-                                foregroundColor: Color.fromARGB(255, 234, 225, 225),
-                                side: BorderSide(
-                                  color: Color.fromARGB(255, 201, 206, 218),
-                                  width: 2,
-                                ),
-                                elevation: 5,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15)
-                              )
-                            ).copyWith(
-                              overlayColor: WidgetStateProperty.resolveWith((status){
-                                if(status.contains(WidgetState.pressed)){
-                                  return Color.fromARGB(158, 255, 255, 255);
-                                }else{
-                                  return Colors.transparent;
-                                }
-                              })
+                          onPressed: (){},
+                          style: ElevatedButton.styleFrom(
+                            minimumSize: const Size(100, 50),
+                            backgroundColor: Color.fromARGB(100, 0, 0, 0),
+                            foregroundColor: Color.fromARGB(255, 255, 255, 255),
+                            side: BorderSide(
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              width: 2,
                             ),
-                            child:Text(
-                                "Login",
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontFamily: "elemental",
-                                color: Color.fromARGB(255, 228, 228, 228)
-                              ),
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)
                             )
+                          ).copyWith(
+                            overlayColor: WidgetStateProperty.resolveWith((status){
+                              if(status.contains(WidgetState.pressed)){
+                                return Color.fromARGB(255, 255, 255, 255);
+                              }else{
+                                return Colors.transparent;
+                              }
+                            })
+                          ),
+                          child:Text(
+                              "Login",
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: "elemental",
+                              color: Color.fromARGB(255, 255, 255, 255)
+                            ),
+                          )
                         ),
                       ]
                     )
@@ -132,16 +152,16 @@ class MyApp extends StatelessWidget {
                 ),
               ),
               Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Padding(
-                    padding: EdgeInsetsGeometry.only(bottom: 20.0),
-                    child: Text(
-                      "©SOLO-PRODUCTIONS",
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 255, 255, 255)
-                      ),
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: EdgeInsetsGeometry.only(bottom: 20.0),
+                  child: Text(
+                    "©SOLO-PRODUCTIONS",
+                    style: TextStyle(
+                        color: Color.fromARGB(255, 255, 255, 255)
                     ),
-                  )
+                  ),
+                )
               )
             ],
           ),
