@@ -1,6 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import "package:font_awesome_flutter/font_awesome_flutter.dart";
-import 'package:soloplay/RegisterScreen.dart';
+import 'package:soloplay/Widgets/button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void main() {
@@ -37,8 +39,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-
-  // Logic stays here in the screen state
+  // Logic screen state
   Future<void> _launchYoutube() async {
     final Uri url = Uri.parse("https://www.youtube.com/@SOLOEDITS7");
     if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
@@ -50,8 +51,8 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      resizeToAvoidBottomInset: false, // Prevents pixel overflow when keyboard opens
-
+      resizeToAvoidBottomInset:
+          false, // Prevents pixel overflow when keyboard opens
       // AppBar
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -76,7 +77,7 @@ class _MainScreenState extends State<MainScreen> {
                 color: Color.fromARGB(255, 255, 255, 255),
               ),
             ),
-          )
+          ),
         ],
       ),
 
@@ -89,17 +90,17 @@ class _MainScreenState extends State<MainScreen> {
             height: double.infinity,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: const AssetImage("assets/images/PhotonCloud_black_hole.png"),
+                image: const AssetImage(
+                  "assets/images/PhotonCloud_black_hole.png",
+                ),
                 fit: BoxFit.cover,
-                alignment: const Alignment(-0.4, 0.0)
+                alignment: const Alignment(-0.4, 0.0),
               ),
             ),
           ),
 
           // LAYER 2: The Login Class (Centered)
-          const Center(
-            child: LoginScreen(),
-          ),
+          const Center(child: LoginScreen()),
 
           // LAYER 3: Copyright Footer
           const Align(
@@ -127,7 +128,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
   // Variables :
   bool _isPasswordHidden = true;
 
@@ -146,12 +146,12 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         FocusManager.instance.primaryFocus?.unfocus();
       },
       child: Container(
         width: 320,
-        height: 360,
+        height: 320,
         padding: const EdgeInsets.only(top: 17),
         decoration: BoxDecoration(
           color: Color.fromARGB(82, 0, 0, 0),
@@ -177,10 +177,15 @@ class _LoginScreenState extends State<LoginScreen> {
               // Username/Email Input
               Theme(
                 data: Theme.of(context).copyWith(
-                    textSelectionTheme: TextSelectionThemeData(
-                        selectionColor: Colors.lightBlue.withAlpha(130),
-                        selectionHandleColor: const Color.fromARGB(255, 0, 236, 255)
-                    )
+                  textSelectionTheme: TextSelectionThemeData(
+                    selectionColor: Colors.lightBlue.withAlpha(130),
+                    selectionHandleColor: const Color.fromARGB(
+                      255,
+                      0,
+                      236,
+                      255,
+                    ),
+                  ),
                 ),
                 child: Container(
                   width: 270,
@@ -198,36 +203,36 @@ class _LoginScreenState extends State<LoginScreen> {
                     cursorRadius: const Radius.circular(10),
 
                     decoration: InputDecoration(
-                        contentPadding: const EdgeInsets.symmetric(vertical: 14.5, horizontal: 15.0),
-                        isDense:true,
+                      contentPadding: const EdgeInsets.symmetric(
+                        vertical: 14.5,
+                        horizontal: 15.0,
+                      ),
+                      isDense: true,
 
-                        //Text :
-                        hintText: "Username/Email",
-                        hintStyle: const TextStyle(
-                            fontSize: 13.9,
-                            color: Color.fromARGB(255, 255, 255, 255)
-                        ),
+                      //Text :
+                      hintText: "Username/Email",
+                      hintStyle: const TextStyle(
+                        fontSize: 13.9,
+                        color: Color.fromARGB(255, 255, 255, 255),
+                      ),
 
-                        // Border :
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(14),
-                          borderSide: const BorderSide(
-                              color: Color.fromARGB(255, 116, 216, 124),
-                              width: 2
-                          ),
+                      // Border :
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(14),
+                        borderSide: const BorderSide(
+                          color: Color.fromARGB(255, 116, 216, 124),
+                          width: 2,
                         ),
-                        enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: const BorderSide(
-                                color: Color.fromARGB(255, 255, 255, 255)
-                            )
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(
+                          color: Color.fromARGB(255, 255, 255, 255),
                         ),
+                      ),
 
-                        //Icon :
-                        prefixIcon: const Icon(
-                            Icons.person,
-                            color: Colors.white
-                        )
+                      //Icon :
+                      prefixIcon: const Icon(Icons.person, color: Colors.white),
                     ),
                   ),
                 ),
@@ -236,16 +241,23 @@ class _LoginScreenState extends State<LoginScreen> {
               // Password / Second Input Placeholder
               Theme(
                 data: Theme.of(context).copyWith(
-                    textSelectionTheme: TextSelectionThemeData(
-                        selectionColor: Colors.lightBlue.withAlpha(130),
-                        selectionHandleColor: const Color.fromARGB(255, 0, 236, 255)
-                    )
+                  textSelectionTheme: TextSelectionThemeData(
+                    selectionColor: Colors.lightBlue.withAlpha(130),
+                    selectionHandleColor: const Color.fromARGB(
+                      255,
+                      0,
+                      236,
+                      255,
+                    ),
+                  ),
                 ),
                 child: Container(
                   width: 270,
                   margin: const EdgeInsets.fromLTRB(0, 20, 0, 10),
                   child: TextField(
+                    // Controller
                     controller: inputPassword,
+
                     textAlignVertical: TextAlignVertical.center,
 
                     // Curser :
@@ -258,52 +270,55 @@ class _LoginScreenState extends State<LoginScreen> {
                     obscureText: _isPasswordHidden,
                     obscuringCharacter: "•",
 
-                    style: const TextStyle(
-                      color: Colors.white
-                    ),
+                    style: const TextStyle(color: Colors.white),
 
                     decoration: InputDecoration(
-                        contentPadding: const EdgeInsets.symmetric(vertical: 14.5, horizontal: 15.0),
-                        isDense:true,
+                      contentPadding: const EdgeInsets.symmetric(
+                        vertical: 14.5,
+                        horizontal: 15.0,
+                      ),
+                      isDense: true,
 
-                        //Text :
-                        hintText: "Password",
-                        hintStyle: const TextStyle(
-                            fontSize: 13.9,
-                            color: Color.fromARGB(255, 255, 255, 255)
-                        ),
+                      //Text :
+                      hintText: "Password",
+                      hintStyle: const TextStyle(
+                        fontSize: 13.9,
+                        color: Color.fromARGB(255, 255, 255, 255),
+                      ),
 
-                        // Border :
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(14),
-                          borderSide: const BorderSide(
-                              color: Color.fromARGB(255, 116, 216, 124),
-                              width: 2
-                          ),
+                      // Border :
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(14),
+                        borderSide: const BorderSide(
+                          color: Color.fromARGB(255, 116, 216, 124),
+                          width: 2,
                         ),
-                        enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: const BorderSide(
-                                color: Color.fromARGB(255, 255, 255, 255)
-                            )
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(
+                          color: Color.fromARGB(255, 255, 255, 255),
                         ),
+                      ),
 
-                        //Icons :
-                        prefixIcon: const Icon(
-                            Icons.lock_rounded,
-                            color: Colors.white
+                      //Icons :
+                      prefixIcon: const Icon(
+                        Icons.lock_rounded,
+                        color: Colors.white,
+                      ),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            _isPasswordHidden = !_isPasswordHidden;
+                          });
+                        },
+                        icon: Icon(
+                          _isPasswordHidden
+                              ? Icons.visibility_rounded
+                              : Icons.visibility_off_rounded,
+                          color: Colors.white,
                         ),
-                        suffixIcon: IconButton(
-                          onPressed: () {
-                            setState(() {
-                              _isPasswordHidden = !_isPasswordHidden;
-                            });
-                          },
-                          icon: Icon(
-                            _isPasswordHidden? Icons.visibility_rounded : Icons.visibility_off_rounded,
-                            color: Colors.white,
-                          ),
-                        )
+                      ),
                     ),
                   ),
                 ),
@@ -311,75 +326,21 @@ class _LoginScreenState extends State<LoginScreen> {
 
               // Login Button
               Padding(
-                padding: const EdgeInsets.only(top: 20),
-                child: ElevatedButton(
-                  onPressed: () {
+                padding: const EdgeInsets.all(12.0),
+                child: SoloButton(
+                  text: "Login",
+                  FontFamily: "elemental",
+                  onTapped: () {
+                    // Add login logic here
                     String usernameOrEmail = inputUserNameOrEmail.text;
                     String password = inputPassword.text;
 
-                    // Add login logic here
+                    debugPrint("Username/Email: $usernameOrEmail");
+                    debugPrint("Password: $password");
                   },
-
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(100, 50),
-                    backgroundColor: const Color.fromARGB(100, 0, 0, 0),
-                    side: const BorderSide(
-                      color: Color.fromARGB(255, 255, 255, 255),
-                      width: 2,
-                    ),
-                    elevation: 5,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                  ).copyWith(
-                    foregroundColor: WidgetStateProperty.all(Colors.white),
-                    overlayColor: WidgetStateProperty.resolveWith(
-                          (status) {
-                        if (status.contains(WidgetState.pressed)) {
-                          return const Color.fromARGB(142, 255, 255, 255);
-                        } else {
-                          return Colors.transparent;
-                        }
-                      },
-                    ),
-                  ),
-                  child: const Text(
-                    "Login",
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontFamily: "elemental",
-                    ),
-                  ),
+                  backGroundColor: const Color.fromARGB(14, 0, 0, 0),
                 ),
               ),
-
-              // Register Link :
-              Container(
-                margin: const EdgeInsets.only(top: 25),
-                child: Row (
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Don't have account?"
-                    ),
-                    GestureDetector(
-                      onTap: (){
-                        // Add register logic here
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => RegisterScreen()),
-                        );
-                      },
-                      child: Text(
-                        " Register here",
-                        style: TextStyle(
-                          color: Color.fromARGB(255, 5, 223, 255)
-                        )
-                      )
-                    )
-                  ],
-                )
-              )
             ],
           ),
         ),
@@ -387,6 +348,35 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+
+// Registration link code :
+/* Container(
+    margin: const EdgeInsets.only(top: 25),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text("Don't have account ?"),
+        GestureDetector(
+          onTap: () {
+            // Add register logic here
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => RegisterScreen(),
+              ),
+            );
+          },
+          child: Text(
+            " Register here",
+            style: TextStyle(
+              color: Color.fromARGB(255, 5, 223, 255),
+            ),
+          ),
+        ),
+      ],
+    ),
+  ),
+*/
 
 // Old Login widgit :
 // class LoginScreen extends StatelessWidget {
