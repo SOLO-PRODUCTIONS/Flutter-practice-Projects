@@ -22,10 +22,6 @@ environment:
   sdk: ^3.10.4
 
 # loading screen :
-flutter_native_splash:
-  color: "#000000"
-  image: "assets/images/Interstaller black hole.png"
-  fullscreen: true
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
