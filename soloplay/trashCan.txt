@@ -1,0 +1,21 @@
+ElevatedButton(
+    onPressed: () {},
+    style: ElevatedButton.styleFrom(
+        minimumSize: const Size(double.infinity, 180),
+        padding: EdgeInsets.zero,
+    ),
+    child: Container(
+        height: 180,
+        constraints: BoxConstraints(maxWidth: 343),
+        decoration: const BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage('assets/images/Thumbnail.png'),
+            fit: BoxFit.cover,
+        ),
+        // color: Color.fromARGB(31, 0, 38, 153), // Placeholder color
+        borderRadius: BorderRadius.vertical(
+            top: Radius.circular(12),
+        ),
+        ),
+    ),
+),

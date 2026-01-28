@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import "package:font_awesome_flutter/font_awesome_flutter.dart";
 import 'package:soloplay/Widgets/button.dart';
+import 'package:soloplay/home.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void main() {
@@ -18,12 +19,16 @@ class SoloPlayApp extends StatelessWidget {
     return MaterialApp(
       title: "SOLOPLAY",
       debugShowCheckedModeBanner: false,
+
       theme: ThemeData(
         useMaterial3: true,
+
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.black,
           brightness: Brightness.dark,
         ),
+
+        scaffoldBackgroundColor: Colors.black,
       ),
       home: const MainScreen(),
     );
@@ -149,6 +154,7 @@ class _LoginScreenState extends State<LoginScreen> {
       onTap: () {
         FocusManager.instance.primaryFocus?.unfocus();
       },
+
       child: Container(
         width: 320,
         height: 320,
@@ -337,6 +343,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     debugPrint("Username/Email: $usernameOrEmail");
                     debugPrint("Password: $password");
+
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => homePage()),
+                    );
                   },
                   backGroundColor: const Color.fromARGB(14, 0, 0, 0),
                 ),
